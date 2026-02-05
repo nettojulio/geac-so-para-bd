@@ -41,12 +41,11 @@ CREATE TABLE organizers
     contact_email VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE organizer_members
+CREATE TABLE organizer_owners
 (
     id           SERIAL PRIMARY KEY,
     organizer_id INTEGER NOT NULL REFERENCES organizers (id),
     user_id      UUID    NOT NULL REFERENCES users (id),
-    role         VARCHAR(20),
     created_at   TIMESTAMP DEFAULT NOW(),
     UNIQUE (organizer_id, user_id)
 );
@@ -173,11 +172,10 @@ VALUES (1, 'CA BCC', 'cabcc@ufape.edu.br'),
        (2, 'DEPARTAMENTO DE PESQUISA EM BANCO DE DADOS', 'dpbd@ufape.edu.br'),
        (3, 'GE JACKSON 5', 'michealjackson@gmail.com');
 
-INSERT INTO public.organizer_members (id, organizer_id, user_id, role, created_at)
-VALUES (1, 1, '548eb76b-c1d1-42b4-a376-7b47ccaed18a', 'OWNER', '2026-02-05 02:38:26.256956'),
-       (2, 1, '9dd22dd9-d9b1-458c-9aea-620275838a46', 'MEMBER', '2026-02-05 02:38:26.256956'),
-       (3, 2, '1f6bc79b-0892-4b41-8dd9-7015006fb0f7', 'OWNER', '2026-02-05 02:38:26.256956'),
-       (4, 3, '93204139-2295-4f57-955c-14e6584e5971', 'OWNER', '2026-02-05 02:38:26.256956');
+INSERT INTO public.organizer_owners (id, organizer_id, user_id, created_at)
+VALUES (1, 1, '548eb76b-c1d1-42b4-a376-7b47ccaed18a', '2026-02-05 02:38:26.256956'),
+       (3, 2, '1f6bc79b-0892-4b41-8dd9-7015006fb0f7', '2026-02-05 02:38:26.256956'),
+       (4, 3, '93204139-2295-4f57-955c-14e6584e5971', '2026-02-05 02:38:26.256956');
 
 INSERT INTO public.speakers (id, name, bio, email)
 VALUES (1, 'Evaristo de Macedo', 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',

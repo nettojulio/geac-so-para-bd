@@ -40,7 +40,7 @@ Siga os passos abaixo para subir o banco de dados e popular o esquema automatica
 
 ---
 
-## 💾 Método de Povoamento (Seed)
+### 💾 Método de Povoamento (Seed)
 
 O banco de dados é **povoado automaticamente** na primeira execução do container. 
 
@@ -54,9 +54,20 @@ Dessa forma, não é necessário rodar scripts manualmente; ao subir o container
 
 ---
 
-## 🛑 Como Parar o Projeto
+### 🛑 Como Parar o Projeto
 
 Para parar a execução e remover os containers:
 
 ```bash
 docker-compose down
+```
+
+---
+
+## Diagrama Atualizado
+
+![Diagrama Atualizado](./image001.png)
+
+## Banco de dados
+
+![Banco de dados](./image002.png)
